@@ -52,7 +52,7 @@ public class Circle implements Serializable {
     double r2 = r * r;
 
     double A = a2 + 1;
-    double B = 2 * a * (y - b) - 2 * x;
+    double B = 2 * a * (b - y) - 2 * x;
     double C = x2 + Math.pow(y - b, 2) - r2;
 
     double aux2 = Math.pow(B, 2) - 4 * A * C;
@@ -72,5 +72,26 @@ public class Circle implements Serializable {
     }
 
     return points;
+  }
+
+  public Set<Point> intersection(Circle other) {
+    double x1 = getCenter().getX();
+    double x1_2 = x1 * x1;
+    double y1 = getCenter().getY();
+    double y1_2 = y1 * y1;
+    double r1 = getRadius();
+    double r1_2 = r1 * r1;
+
+    double x2 = other.getCenter().getX();
+    double x2_2 = x2 * x2;
+    double y2 = other.getCenter().getY();
+    double y2_2 = y2 * y2;
+    double r2 = other.getRadius();
+    double r2_2 = r2 * r2;
+
+    double a = (x2 - x1) / (y1 - y2);
+    double b = ((x1_2 - x2_2) + (y1_2 - y2_2) + (r2_2 - r1_2)) / (2 * (y1 - y2));
+
+    return intersection(new Line(a, b));
   }
 }
