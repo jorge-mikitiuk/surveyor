@@ -13,10 +13,13 @@ import ar.com.jnm.surveyor.repository.Repository;
 import ar.com.jnm.surveyor.service.Service;
 import ar.com.jnm.surveyor.view.AddCrosslineView;
 import ar.com.jnm.surveyor.view.AddLandmarkView;
+import ar.com.jnm.surveyor.view.CircleToCircleIntersectionView;
+import ar.com.jnm.surveyor.view.CircleToLineIntersectionView;
 import ar.com.jnm.surveyor.view.ExitView;
 import ar.com.jnm.surveyor.view.MenuView;
 import ar.com.jnm.surveyor.view.PrintLandmarksView;
 import ar.com.jnm.surveyor.view.PrintReferencesView;
+import ar.com.jnm.surveyor.view.TwoPointsLineView;
 import ar.com.jnm.surveyor.view.View;
 
 public class Application {
@@ -44,6 +47,9 @@ public class Application {
     views.put("acl", new AddCrosslineView(scanner, service));
     views.put("plm", new PrintLandmarksView(scanner, service));
     views.put("pref", new PrintReferencesView(scanner, service));
+    views.put("cc", new CircleToCircleIntersectionView(scanner, service));
+    views.put("cl", new CircleToLineIntersectionView(scanner, service));
+    views.put("pp", new TwoPointsLineView(scanner, service));
 
     MenuView menuView = new MenuView(scanner, views);
     views.put("menu", menuView);
