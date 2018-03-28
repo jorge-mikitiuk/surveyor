@@ -26,6 +26,7 @@ public class CircleToLineIntersectionView extends AbstractView {
     double a = getScanner().nextDouble();
     System.out.print("Define R.B: ");
     double b = getScanner().nextDouble();
+    getScanner().nextLine();
 
     Set<Point> points = new Circle(new Point(x1, y1), r1).intersection(new Line(a, b));
     for (Point point : points) {

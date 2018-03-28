@@ -18,6 +18,7 @@ public class AddLandmarkView extends AbstractView {
     double x = getScanner().nextDouble();
     System.out.print("Defina y coordinate:");
     double y = getScanner().nextDouble();
+    getScanner().nextLine();
     getService().addLandmark(id, x, y);
     System.out.println("Reference added");
   }

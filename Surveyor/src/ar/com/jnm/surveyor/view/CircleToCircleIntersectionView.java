@@ -27,6 +27,7 @@ public class CircleToCircleIntersectionView extends AbstractView {
     double y2 = getScanner().nextDouble();
     System.out.print("Define C2 radius: ");
     double r2 = getScanner().nextDouble();
+    getScanner().nextLine();
 
     Set<Point> points = new Circle(new Point(x1, y1), r1).intersection(new Circle(new Point(x2, y2), r2));
     for (Point point : points) {

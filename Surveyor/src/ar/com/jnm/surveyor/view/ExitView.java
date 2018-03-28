@@ -17,21 +17,14 @@ public class ExitView implements View {
 
   @Override
   public void show() {
-    boolean saved = false;
-    boolean ignoreErrors = false;
-
-    while (!saved && !ignoreErrors) {
-      try {
-        getApplication().save();
-        saved = true;
-      } catch (Exception e) {
-        System.err.println(e);
-        System.out.println("Exit without save? [Y|N]");
-        ignoreErrors = getScanner().nextLine().trim().startsWith("Y");
-      }
+    if (getApplication().isDirty()) {
+      System.out.println("Exit without save? [Y|N]");
     }
-    getScanner().close();
-    getApplication().exit();
+
+    if (!getApplication().isDirty() || getScanner().nextLine().trim().toUpperCase().startsWith("Y")) {
+      getScanner().close();
+      getApplication().exit();
+    }
   }
 
   private Application getApplication() {

@@ -17,6 +17,8 @@ public class Repository implements Serializable {
 
   private Map<String, Set<Line>> crossLines = new HashMap<>();
 
+  private transient boolean dirty = false;
+
   public Repository() {
     super();
   }
@@ -31,6 +33,23 @@ public class Repository implements Serializable {
 
   public void addLandmark(String name, Point point) {
     getLandmarks().put(name, point);
+    markAsDirty();
+  }
+
+  public void addCrossline(String id, String lm1, String lm2) {
+    getCrossline(id).add(getLine(lm1, lm2));
+    markAsDirty();
+  }
+
+  private Line getLine(String lm1, String lm2) {
+    Point point1 = getLandmark(lm1);
+    Point point2 = getLandmark(lm2);
+    Line line = point1.getLine(point2);
+    return line;
+  }
+
+  private void markAsDirty() {
+    setDirty(true);
   }
 
   public Set<Line> getCrossline(String id) {
@@ -38,6 +57,7 @@ public class Repository implements Serializable {
     if (set == null) {
       set = new TreeSet<>();
       getCrossLines().put(id, set);
+      markAsDirty();
     }
     return set;
   }
@@ -55,11 +75,21 @@ public class Repository implements Serializable {
   }
 
   public boolean removeLandmark(String id) {
+    markAsDirty();
     return getLandmarks().remove(id) != null;
   }
 
   public boolean removeCrossline(String id) {
+    markAsDirty();
     return getCrossLines().remove(id) != null;
+  }
+
+  public boolean isDirty() {
+    return dirty;
+  }
+
+  public void setDirty(boolean dirty) {
+    this.dirty = dirty;
   }
 
 }

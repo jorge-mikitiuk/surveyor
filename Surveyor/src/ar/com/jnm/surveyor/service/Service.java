@@ -22,14 +22,7 @@ public class Service {
   }
 
   public void addCrossline(String id, String lm1, String lm2) {
-    getRepository().getCrossline(id).add(getLine(lm1, lm2));
-  }
-
-  private Line getLine(String lm1, String lm2) {
-    Point point1 = getRepository().getLandmark(lm1);
-    Point point2 = getRepository().getLandmark(lm2);
-    Line line = point1.getLine(point2);
-    return line;
+    getRepository().addCrossline(id, lm1, lm2);
   }
 
   public Set<Reference> getReferences() {

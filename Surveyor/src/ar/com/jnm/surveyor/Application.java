@@ -22,6 +22,7 @@ import ar.com.jnm.surveyor.view.MenuView;
 import ar.com.jnm.surveyor.view.PrintCrosslinesView;
 import ar.com.jnm.surveyor.view.PrintLandmarksView;
 import ar.com.jnm.surveyor.view.PrintReferencesView;
+import ar.com.jnm.surveyor.view.SaveView;
 import ar.com.jnm.surveyor.view.TwoPointsLineView;
 import ar.com.jnm.surveyor.view.View;
 
@@ -55,6 +56,7 @@ public class Application {
     views.put("pp", new TwoPointsLineView(scanner, service));
     views.put("cc", new CircleToCircleIntersectionView(scanner, service));
     views.put("cl", new CircleToLineIntersectionView(scanner, service));
+    views.put("save", new SaveView(application));
     views.put("exit", new ExitView(application, scanner));
 
     MenuView menuView = new MenuView(scanner, views);
@@ -68,8 +70,11 @@ public class Application {
   }
 
   public void save() throws Exception {
-    try (ObjectOutputStream oout = new ObjectOutputStream(new FileOutputStream(new File(getDb())))) {
-      oout.writeObject(getRepository());
+    if (isDirty()) {
+      try (ObjectOutputStream oout = new ObjectOutputStream(new FileOutputStream(new File(getDb())))) {
+        oout.writeObject(getRepository());
+      }
+      getRepository().setDirty(false);
     }
   }
 
@@ -99,5 +104,13 @@ public class Application {
 
   private void setDb(String db) {
     this.db = db;
+  }
+
+  public boolean isDirty() {
+    try {
+      return getRepository().isDirty();
+    } catch (Exception e) {
+      return false;
+    }
   }
 }
