@@ -33,7 +33,7 @@ public class Point implements Comparable<Point>, Serializable {
 
   @Override
   public String toString() {
-    return String.format("( %1$.2f ; %2$.2f )", getX(), getY());
+    return String.format("Point( %1$.2f ; %2$.2f )", getX(), getY());
   }
 
   public double distance(Point other) {

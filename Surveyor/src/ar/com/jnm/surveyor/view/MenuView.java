@@ -2,8 +2,8 @@ package ar.com.jnm.surveyor.view;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 public class MenuView implements View {
 
@@ -29,6 +29,8 @@ public class MenuView implements View {
       View view = getViews().get(option);
       if (view != null) {
         view.show();
+      } else {
+        System.out.println("Command not found");
       }
     }
 
@@ -36,8 +38,9 @@ public class MenuView implements View {
 
   private void showOptions() {
     System.out.println("Menú:");
-    for (Entry<String, View> view : getViews().entrySet()) {
-      System.out.println(view.getKey() + ": " + view.getValue().getDescription());
+
+    for (String id : new TreeSet<>(getViews().keySet())) {
+      System.out.printf("%1$6s: %2$s\n", id, getViews().get(id).getDescription());
     }
   }
 
@@ -59,6 +62,6 @@ public class MenuView implements View {
 
   @Override
   public String getDescription() {
-    return "Menú";
+    return "Menu";
   }
 }

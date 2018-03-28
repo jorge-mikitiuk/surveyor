@@ -15,8 +15,11 @@ import ar.com.jnm.surveyor.view.AddCrosslineView;
 import ar.com.jnm.surveyor.view.AddLandmarkView;
 import ar.com.jnm.surveyor.view.CircleToCircleIntersectionView;
 import ar.com.jnm.surveyor.view.CircleToLineIntersectionView;
+import ar.com.jnm.surveyor.view.DeleteCrosslineView;
+import ar.com.jnm.surveyor.view.DeleteLandMarkView;
 import ar.com.jnm.surveyor.view.ExitView;
 import ar.com.jnm.surveyor.view.MenuView;
+import ar.com.jnm.surveyor.view.PrintCrosslinesView;
 import ar.com.jnm.surveyor.view.PrintLandmarksView;
 import ar.com.jnm.surveyor.view.PrintReferencesView;
 import ar.com.jnm.surveyor.view.TwoPointsLineView;
@@ -42,14 +45,17 @@ public class Application {
 
     Scanner scanner = new Scanner(System.in);
     Map<String, View> views = new HashMap<>();
-    views.put("exit", new ExitView(application, scanner));
     views.put("alm", new AddLandmarkView(scanner, service));
     views.put("acl", new AddCrosslineView(scanner, service));
+    views.put("dcl", new DeleteCrosslineView(scanner, service));
+    views.put("dlm", new DeleteLandMarkView(scanner, service));
     views.put("plm", new PrintLandmarksView(scanner, service));
+    views.put("pcl", new PrintCrosslinesView(scanner, service));
     views.put("pref", new PrintReferencesView(scanner, service));
+    views.put("pp", new TwoPointsLineView(scanner, service));
     views.put("cc", new CircleToCircleIntersectionView(scanner, service));
     views.put("cl", new CircleToLineIntersectionView(scanner, service));
-    views.put("pp", new TwoPointsLineView(scanner, service));
+    views.put("exit", new ExitView(application, scanner));
 
     MenuView menuView = new MenuView(scanner, views);
     views.put("menu", menuView);

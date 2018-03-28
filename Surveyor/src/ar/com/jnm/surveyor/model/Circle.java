@@ -35,7 +35,7 @@ public class Circle implements Serializable {
 
   @Override
   public String toString() {
-    return String.format("C -> (%1$.2f - X)^2 + (%2$.2f - Y)^2 == %3$.2f^2", getCenter().getX(),
+    return String.format("C(x,y) -> (%1$.2f - X)^2 + (%2$.2f - Y)^2 == %3$.2f^2", getCenter().getX(),
         getCenter().getY(), getRadius());
   }
 

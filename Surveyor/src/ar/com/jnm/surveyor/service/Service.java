@@ -41,7 +41,7 @@ public class Service {
         Line[] lines = set.toArray(new Line[set.size()]);
         addReference(references, crosslines.getKey(), lines[0], lines[lines.length - 1]);
       } else {
-        System.err.println("Información insuficiente: " + crosslines.getKey());
+        System.err.println("Insufficient information: " + crosslines.getKey());
       }
 
     }
@@ -75,10 +75,18 @@ public class Service {
 
   public void printCrosslines() {
     for (Entry<String, Set<Line>> cl : getRepository().getCrossLines().entrySet()) {
-      System.out.println(cl.getKey());
+      System.out.println("  " + cl.getKey());
       for (Line line : cl.getValue()) {
-        System.out.println("-> " + line);
+        System.out.println("    " + line);
       }
     }
+  }
+
+  public boolean removeLandmark(String id) {
+    return getRepository().removeLandmark(id);
+  }
+
+  public boolean removeCrossline(String id) {
+    return getRepository().removeCrossline(id);
   }
 }

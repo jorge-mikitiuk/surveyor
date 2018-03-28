@@ -13,9 +13,9 @@ public class PrintLandmarksView extends AbstractView {
 
   @Override
   public void show() {
-    System.out.println("Landmarks cargados:");
+    System.out.println("Loaded landmarks:");
     for (Reference ref : getService().getLandmarks()) {
-      System.out.println(ref);
+      System.out.println("  " + ref);
     }
   }
 

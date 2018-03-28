@@ -15,17 +15,17 @@ public class CircleToCircleIntersectionView extends AbstractView {
 
   @Override
   public void show() {
-    System.out.print("Ingrese la coordenada X de C1: ");
+    System.out.print("Define C1.x coordinate: ");
     double x1 = getScanner().nextDouble();
-    System.out.print("Ingrese la coordenada Y de C1: ");
+    System.out.print("Define C1.y coordinate: ");
     double y1 = getScanner().nextDouble();
-    System.out.print("Ingrese el radio de C1: ");
+    System.out.print("Define C1 radius: ");
     double r1 = getScanner().nextDouble();
-    System.out.print("Ingrese la coordenada X de C2: ");
+    System.out.print("Define C2.x coordinate: ");
     double x2 = getScanner().nextDouble();
-    System.out.print("Ingrese la coordenada Y de C2: ");
+    System.out.print("Define C2.y coordinate: ");
     double y2 = getScanner().nextDouble();
-    System.out.print("Ingrese el radio de C2: ");
+    System.out.print("Define C2 radius: ");
     double r2 = getScanner().nextDouble();
 
     Set<Point> points = new Circle(new Point(x1, y1), r1).intersection(new Circle(new Point(x2, y2), r2));

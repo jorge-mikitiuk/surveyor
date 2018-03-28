@@ -54,4 +54,12 @@ public class Repository implements Serializable {
     this.crossLines = crossLines;
   }
 
+  public boolean removeLandmark(String id) {
+    return getLandmarks().remove(id) != null;
+  }
+
+  public boolean removeCrossline(String id) {
+    return getCrossLines().remove(id) != null;
+  }
+
 }

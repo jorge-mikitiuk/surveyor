@@ -12,14 +12,14 @@ public class AddLandmarkView extends AbstractView {
 
   @Override
   public void show() {
-    System.out.print("Ingrese el ID del landmark:");
+    System.out.print("Defina landmark ID:");
     String id = getScanner().nextLine();
-    System.out.print("Ingrese la coordenada X:");
+    System.out.print("Define x coordinate:");
     double x = getScanner().nextDouble();
-    System.out.print("Ingrese la coordenada Y:");
+    System.out.print("Defina y coordinate:");
     double y = getScanner().nextDouble();
     getService().addLandmark(id, x, y);
-    System.out.println("Referencia ingresada");
+    System.out.println("Reference added");
   }
 
   @Override

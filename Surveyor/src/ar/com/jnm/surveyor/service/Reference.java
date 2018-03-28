@@ -31,7 +31,7 @@ public class Reference implements Comparable<Reference> {
 
   @Override
   public String toString() {
-    return getName() + " " + getPoint();
+    return getName() + " -> " + getPoint();
   }
 
   @Override

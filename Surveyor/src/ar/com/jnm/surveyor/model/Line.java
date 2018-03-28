@@ -34,7 +34,7 @@ public class Line implements Comparable<Line>, Serializable {
 
   @Override
   public String toString() {
-    return String.format("y= %1$.2fX %2$+.2f", getA(), getB());
+    return String.format("f(x)= %1$.2fX %2$+.2f", getA(), getB());
   }
 
   public Optional<Point> intersection(Line other) {

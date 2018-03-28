@@ -26,8 +26,8 @@ public class ExitView implements View {
         saved = true;
       } catch (Exception e) {
         System.err.println(e);
-        System.out.println("Salir sin salvar? [S|N]");
-        ignoreErrors = getScanner().nextLine().trim().startsWith("S");
+        System.out.println("Exit without save? [Y|N]");
+        ignoreErrors = getScanner().nextLine().trim().startsWith("Y");
       }
     }
     getScanner().close();

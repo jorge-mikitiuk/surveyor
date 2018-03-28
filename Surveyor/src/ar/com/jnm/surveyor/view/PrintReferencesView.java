@@ -13,9 +13,9 @@ public class PrintReferencesView extends AbstractView {
 
   @Override
   public void show() {
-    System.out.println("Referencias cargadas:");
+    System.out.println("Loaded references:");
     for (Reference ref : getService().getReferences()) {
-      System.out.println(ref);
+      System.out.println("  " + ref);
     }
   }
 

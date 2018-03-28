@@ -13,13 +13,13 @@ public class TwoPointsLineView extends AbstractView {
 
   @Override
   public void show() {
-    System.out.print("Ingrese la coordenada X de p1: ");
+    System.out.print("Define p1.x coordinate: ");
     double x1 = getScanner().nextDouble();
-    System.out.print("Ingrese la coordenada Y de p1: ");
+    System.out.print("Define p1.y coordinate: ");
     double y1 = getScanner().nextDouble();
-    System.out.print("Ingrese la coordenada X de p2: ");
+    System.out.print("Define p2.x coordinate: ");
     double x2 = getScanner().nextDouble();
-    System.out.print("Ingrese la coordenada Y de p2: ");
+    System.out.print("Define p2.y coordinate: ");
     double y2 = getScanner().nextDouble();
     System.out.println(new Point(x1, y1).getLine(new Point(x2, y2)));
 

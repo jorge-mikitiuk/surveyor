@@ -12,14 +12,14 @@ public class AddCrosslineView extends AbstractView {
 
   @Override
   public void show() {
-    System.out.print("Ingrese el ID del crossline: ");
+    System.out.print("Define crossline ID: ");
     String id = getScanner().nextLine();
-    System.out.print("Ingrese el ID del landmark(1): ");
+    System.out.print("Define landmark(1) ID: ");
     String lm1 = getScanner().nextLine();
-    System.out.print("Ingrese el ID del landmark(2): ");
+    System.out.print("Define landmark(2) ID: ");
     String lm2 = getScanner().nextLine();
     getService().addCrossline(id, lm1, lm2);
-    System.out.println("Referencia ingresada");
+    System.out.println("Referece added");
   }
 
   @Override
